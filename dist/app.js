@@ -42,8 +42,11 @@ async function playSiteIntro() {
   const animations = [];
   const events = new AbortController();
   let timeout;
-  finishIntro = () => {
+  finishIntro = (completed = false) => {
     if (!introActive) return;
+    if (completed === true) {
+      try { localStorage.setItem('laszewo:intro:completed', '1'); } catch {}
+    }
     introActive = false;
     clearTimeout(timeout);
     events.abort();
@@ -60,7 +63,8 @@ async function playSiteIntro() {
   timeout = setTimeout(finishIntro, 4500);
 
   try {
-    await Promise.race([gif.decode(), new Promise(resolve => setTimeout(resolve, 500))]);
+    // Allow a cold image download to finish; the overall timeout still releases the page.
+    await gif.decode();
     if (!introActive) return;
     if (motionPaused || document.hidden || !gif.naturalWidth || !brand.animate) { finishIntro(); return; }
     const rect = brand.getBoundingClientRect();
@@ -81,8 +85,8 @@ async function playSiteIntro() {
       { transform: 'translateY(-100%)', offset: 1 },
     ], timing));
     root.classList.replace('intro-pending', 'intro-running');
-    await Promise.allSettled(animations.map(animation => animation.finished));
-    finishIntro();
+    await Promise.all(animations.map(animation => animation.finished));
+    finishIntro(true);
   } catch { finishIntro(); }
 }
 playSiteIntro();
