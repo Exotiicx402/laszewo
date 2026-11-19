@@ -5,15 +5,14 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#171917">
   <script>
-    // Set before first paint; storage failure leaves the site immediately usable.
-    try {
-      const seen = localStorage.getItem('laszewo:intro:seen');
-      localStorage.setItem('laszewo:intro:seen', '1');
-      if (!seen && !location.hash && !matchMedia('(prefers-reduced-motion: reduce)').matches && performance.getEntriesByType('navigation')[0]?.type !== 'back_forward') {
-        document.documentElement.classList.add('intro-pending');
-        setTimeout(() => document.documentElement.classList.remove('intro-pending'), 5000);
-      }
-    } catch {}
+    // Only a finished intro counts. The old "seen" flag could be saved before playback.
+    let introCompleted = false;
+    try { introCompleted = localStorage.getItem('laszewo:intro:completed') === '1'; } catch {}
+    const replayIntro = new URLSearchParams(location.search).get('intro') === '1';
+    if ((replayIntro || !introCompleted) && !location.hash && !matchMedia('(prefers-reduced-motion: reduce)').matches && performance.getEntriesByType('navigation')[0]?.type !== 'back_forward') {
+      document.documentElement.classList.add('intro-pending');
+      setTimeout(() => document.documentElement.classList.remove('intro-pending'), 5000);
+    }
   </script>
   <title>Łaszewo</title>
   <meta property="og:title" content="Łaszewo">
@@ -31,7 +30,7 @@
   <link rel="stylesheet" href="smooth-scroll.css?v=native-scroll-20261118">
   <link rel="stylesheet" href="mobile.css?v=responsive-20261118">
   <link rel="stylesheet" href="intro.css?v=first-visit-20261118">
-  <script src="app.js?v=curtain-intro-20261118" defer></script>
+  <script src="app.js?v=intro-completion-20261119" defer></script>
   <script type="module" src="music-section.js?v=flow-20261118"></script>
   <script type="module" src="shows.js?v=flow-20261118"></script>
 </head>
