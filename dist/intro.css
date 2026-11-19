@@ -1,0 +1,15 @@
+/* The real header GIF makes the journey; no clone, restart, or handoff. */
+.site-intro { display: none; position: fixed; inset: 0; z-index: 1000; background: var(--paper); pointer-events: none; }
+.intro-pending .site-intro, .intro-running .site-intro { display: block; }
+.intro-pending .site-header, .intro-running .site-header { z-index: 1001; pointer-events: none; }
+.intro-pending .site-header nav, .intro-running .site-header nav,
+.intro-pending .header-tour, .intro-running .header-tour { visibility: hidden; }
+.intro-pending .brand { visibility: hidden; }
+.intro-running .brand { transform-origin: center; transition: none; will-change: transform; }
+.intro-pending .hero-image-main, .intro-running .hero-image-main,
+.intro-pending .hero h1, .intro-running .hero h1 { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .site-intro { display: none !important; }
+  .intro-pending .brand, .intro-pending .site-header nav, .intro-running .site-header nav,
+  .intro-pending .header-tour, .intro-running .header-tour { visibility: visible; }
+}
