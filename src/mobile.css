@@ -1,0 +1,71 @@
+/* Keep both landscape photographs complete on phones and small tablets. */
+@media (max-width: 900px) {
+  .hero { height: auto; min-height: 0; max-height: none; padding-top: 100px; background: var(--ink); }
+  .hero-images { position: relative; inset: auto; width: 100%; height: auto; aspect-ratio: 3 / 2; transform: none; transition: none; }
+  .hero-image-main { animation: none; }
+  .hero-image img { object-fit: contain; object-position: center; }
+  .hero-shade, .hero-edge { display: none; }
+  .hero h1 { position: relative; inset: auto; margin: 22px var(--pad) 28px; line-height: 0; animation: none; }
+  .hero-wordmark { transform: none; }
+}
+
+@media (max-width: 700px) {
+  :root { --pad: clamp(18px, 5vw, 28px); }
+  .site-header { padding: 14px var(--pad); gap: 12px; height: 76px; }
+  .site-header .brand { width: 58px; height: 44px; aspect-ratio: auto; overflow: visible; }
+  .site-header .brand-loop { width: 69.05px; top: -12.53px; left: -5.52px; }
+  .site-header .brand-still { position: absolute; top: 50%; transform: translateY(-50%); }
+  .site-header nav { flex-shrink: 0; }
+  .hero { padding-top: 76px; }
+  .hero h1 { margin: 20px 16px 24px; }
+  .section-pad { padding-block: 42px; }
+  .section-intro { flex-wrap: wrap; row-gap: 12px; }
+
+  /* Full-width titles; the track picker shares the bottom navigation row. */
+  .music.music-section { padding-top: 30px; }
+  .music-shell { --music-height: 700px; --music-disc-size: clamp(190px, 58vw, 300px); }
+  .music-cascade .dcc-head,
+  .music-shell[data-title-size] .dcc-head { top: 30px; width: calc(100% - var(--pad) * 2); padding-right: 0; }
+  .music-cascade .dcc-title { font-size: clamp(60px, 18vw, 96px); margin-bottom: 18px; }
+  .music-shell[data-title-size="medium"] .dcc-title { font-size: clamp(38px, 10vw, 56px); }
+  .music-shell[data-title-size="long"] .dcc-title { font-size: clamp(28px, 7.5vw, 42px); line-height: 1.05; }
+  .music-cascade .dcc-row dd { overflow-wrap: anywhere; }
+  .music-cascade .dcc-stage { top: 53%; }
+  .music-cascade .dcc-nav { top: auto; bottom: 24px; left: var(--pad); right: auto; z-index: 120; }
+  .music-cascade .dcc-menubtn.flow-button { padding: 11px 14px; font-size: 12px; min-height: 46px; }
+  .music-cascade .dcc-list { top: auto; bottom: calc(100% + 12px); left: 0; right: auto; max-height: min(300px, 38svh); }
+  .music-cascade .dcc-ctl { gap: 8px; }
+  .music-cascade .dcc-count { min-width: 50px; }
+  .disc-player { bottom: 100px; }
+  .disc-actions { gap: 10px; }
+  .disc-actions .flow-button { min-height: 48px; }
+  .disc-status { font-size: 12px; line-height: 1.5; }
+
+  .live .section-intro { padding-bottom: 28px; }
+  .live-layout { gap: 32px; }
+  .live h2 { font-size: clamp(68px, 19vw, 112px); }
+  .show-row { display: grid; grid-template-columns: 36px minmax(0, 1fr) auto; gap: 12px; padding: 18px 0; }
+  .show-row time, .show-date-placeholder { width: 36px; }
+  .show-row time { font-size: 36px; }
+  .show-city strong { font-size: clamp(16px, 4.6vw, 19px); line-height: 1.2; }
+  .show-info > span { font-size: 13px; line-height: 1.4; overflow-wrap: anywhere; }
+  .show-action.flow-button { min-height: 44px; padding-inline: 10px; }
+  .shows-heading { gap: 14px; font-size: 12px; }
+  .shows-heading > span:last-child { white-space: nowrap; }
+
+  .footer-top { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px 22px; }
+  .footer-message h2 { font-size: clamp(64px, 20vw, 110px); }
+  .footer-links { min-width: 0; padding-left: 0; }
+  .footer-photo { min-width: 0; align-self: start; margin-top: 10px; }
+  .footer-photo > span { font-size: 12px; }
+  .footer-links .social-links { gap: 7px; }
+  .footer-bottom { padding-bottom: max(18px, env(safe-area-inset-bottom)); }
+}
+
+@media (max-width: 360px) {
+  .site-header { gap: 8px; }
+  .site-header nav .flow-button.flow-compact { padding-inline: 10px; }
+  .disc-actions .flow-button { padding-inline: 12px; }
+  .footer-top { gap: 30px 16px; }
+  .footer-links .flow-button.flow-compact { padding-inline: 10px; font-size: 13px; }
+}
