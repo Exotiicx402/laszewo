@@ -4,6 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#171917">
+  <script>
+    // Set before first paint; storage failure leaves the site immediately usable.
+    try {
+      const seen = localStorage.getItem('laszewo:intro:seen');
+      localStorage.setItem('laszewo:intro:seen', '1');
+      if (!seen && !location.hash && !matchMedia('(prefers-reduced-motion: reduce)').matches && performance.getEntriesByType('navigation')[0]?.type !== 'back_forward') {
+        document.documentElement.classList.add('intro-pending');
+        setTimeout(() => document.documentElement.classList.remove('intro-pending'), 5000);
+      }
+    } catch {}
+  </script>
   <title>Łaszewo</title>
   <meta property="og:title" content="Łaszewo">
   <meta property="og:image" content="https://laszewo-afterhours.dwash4.chatgpt.site/assets/a.webp">
@@ -13,16 +24,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="preload" href="assets/a.webp" as="image">
-  <link rel="stylesheet" href="style.css?v=native-scroll-20261118">
+  <link rel="preload" href="assets/pastel-figures.gif" as="image">
+  <link rel="stylesheet" href="style.css?v=curtain-intro-20261118">
   <link rel="stylesheet" href="music-section.css?v=full-art-20261118">
   <link rel="stylesheet" href="flow-button.css?v=source-copy-20261118">
   <link rel="stylesheet" href="smooth-scroll.css?v=native-scroll-20261118">
   <link rel="stylesheet" href="mobile.css?v=responsive-20261118">
-  <script src="app.js?v=native-scroll-20261118" defer></script>
+  <link rel="stylesheet" href="intro.css?v=first-visit-20261118">
+  <script src="app.js?v=curtain-intro-20261118" defer></script>
   <script type="module" src="music-section.js?v=flow-20261118"></script>
   <script type="module" src="shows.js?v=flow-20261118"></script>
 </head>
 <body>
+  <div class="site-intro" aria-hidden="true"></div>
   <a class="skip-link" href="#music">Skip to music</a>
   <header class="site-header">
     <a class="brand" href="#top" aria-label="Łaszewo, home">

@@ -10,3 +10,4 @@
 - Preserve public access to the deployed site.
 - Publish this repository through its GitHub integration with Vercel in the existing Dtrain team. The production branch is `main`; `vercel.json` declares the build and static output.
 - Keep manual page scrolling native: do not reintroduce Lenis wheel interception or scroll-driven hero style updates. CSS may ease anchor navigation while respecting reduced motion.
+- Show the GIF intro only on the first visit per browser, remembered in localStorage. Animate the actual logo to its header position; respect reduced motion and keep input able to skip. Hero photo swaps use the original clip-path curtain reveal, never opacity crossfades.
