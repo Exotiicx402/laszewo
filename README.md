@@ -7,7 +7,7 @@ Artist website with a React music carousel. Serve `dist/` with any static server
 Source repository: https://github.com/Exotiicx402/laszewo. Vercel builds the `main` branch using `npm ci`, then `npm run typecheck && npm run build`, and serves `dist/`. This is a static deployment; it does not require server functions, a database, or environment secrets. Production hosting uses the existing Dtrain team.
 
 - Official 2026 press photography provided through Gavin’s Drive link.
-- Desktop and mobile share the same two hero photos (`a.webp` and `b.webp`), crossfading every 15 seconds. The hero has no play or manual photo-switch buttons. Rotation pauses in hidden tabs and for reduced-motion preferences.
+- Desktop and mobile share the same two hero photos (`a.webp` and `b.webp`), alternating every 15 seconds with the original 850ms horizontal curtain reveal. The hero has no play or manual photo-switch buttons. Rotation pauses in hidden tabs and for reduced-motion preferences.
 - Mobile and small-tablet heroes preserve the full 3:2 photo frame so all three members remain visible, with navigation above and the wordmark below. `src/mobile.css` also adapts music titles, track navigation, show rows, and footer spacing for narrow screens; the build copies it to `dist/mobile.css`.
 - Existing Łaszewo wordmark and three-person symbol from laszewo.com.
 - User-supplied pastel figures GIF in the header, with its original colors and timing. CSS frames its transparent margins; the original file is unchanged. Reduced-motion preferences show the static symbol.
@@ -39,3 +39,7 @@ Images are web-optimized copies. Original high-resolution photographs and resear
 ### Copy policy
 
 Use only artist copy verified on the official site or in Gavin’s supplied resources. See `COPY-SOURCES.md` for the source record and `AGENTS.md` for the persistent project rule. The separator contains only the official three-person symbol.
+
+### First-visit introduction
+
+A brief opening curtain presents the supplied looping GIF at the center of the screen, then moves the actual header logo into its normal top-left position. The 2.4-second sequence uses transform animations only and leaves no animation loop running. A persistent `laszewo:intro:seen` localStorage flag prevents replay on later visits in the same browser. Reduced motion, blocked storage, deep links, and back/forward navigation open directly to the site. Scrolling, tapping, keyboard input, resizing, or leaving the page dismisses the intro immediately. The 15-second hero-photo cycle begins after the introduction finishes.
