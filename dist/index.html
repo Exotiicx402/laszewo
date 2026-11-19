@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#171917">
+  <title>Łaszewo</title>
+  <meta property="og:title" content="Łaszewo">
+  <meta property="og:image" content="https://laszewo-afterhours.dwash4.chatgpt.site/assets/a.webp">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/people.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/a.webp" as="image">
+  <link rel="stylesheet" href="style.css?v=hero-cycle-20261118">
+  <link rel="stylesheet" href="music-section.css?v=full-art-20261118">
+  <link rel="stylesheet" href="flow-button.css?v=source-copy-20261118">
+  <link rel="stylesheet" href="smooth-scroll.css?v=lenis-20261118">
+  <link rel="stylesheet" href="mobile.css?v=responsive-20261118">
+  <script src="app.js?v=hero-cycle-20261118" defer></script>
+  <script type="module" src="smooth-scroll.js?v=lenis-20261118"></script>
+  <script type="module" src="music-section.js?v=flow-20261118"></script>
+  <script type="module" src="shows.js?v=flow-20261118"></script>
+</head>
+<body>
+  <a class="skip-link" href="#music">Skip to music</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Łaszewo, home">
+      <img class="brand-loop" src="assets/pastel-figures.gif" width="800" height="800" alt="">
+      <img class="brand-still" src="assets/people.png" width="80" height="40" alt="">
+    </a>
+    <nav aria-label="Main navigation">
+      <a class="flow-button flow-compact" href="#music">Music</a>
+      <a class="flow-button flow-compact" href="#live">Tour</a>
+      <a class="flow-button flow-compact" href="https://laylo.com/laszewo/cj9Z0" target="_blank" rel="noopener">Merch</a>
+    </nav>
+    <a class="header-tour flow-button flow-accent" href="https://laylo.com/d/602a7214-254e-4ad7-895a-3230a0894dc5" target="_blank" rel="noopener">Get tickets</a>
+  </header>
+
+  <main>
+    <section class="hero" id="top" aria-labelledby="artist-title">
+      <div class="hero-images" aria-hidden="true">
+        <picture class="hero-image hero-image-main"><img src="assets/a.webp" alt="" fetchpriority="high" width="2400" height="1600"></picture>
+        <picture class="hero-image hero-image-alternate"><img src="assets/b.webp" alt="" width="2400" height="1600"></picture>
+      </div>
+      <div class="hero-shade" aria-hidden="true"></div>
+      <h1 id="artist-title"><span class="sr-only">Łaszewo</span><span class="hero-wordmark" aria-hidden="true"></span></h1>
+      <span class="hero-edge" aria-hidden="true"></span>
+    </section>
+
+    <div class="ticker" aria-hidden="true"><div><img src="assets/people.png" alt=""><img src="assets/people.png" alt=""><img src="assets/people.png" alt=""><img src="assets/people.png" alt=""><img src="assets/people.png" alt=""><img src="assets/people.png" alt=""><img src="assets/people.png" alt=""><img src="assets/people.png" alt=""><img src="assets/people.png" alt=""><img src="assets/people.png" alt=""><img src="assets/people.png" alt=""><img src="assets/people.png" alt=""><img src="assets/people.png" alt=""><img src="assets/people.png" alt=""><img src="assets/people.png" alt=""><img src="assets/people.png" alt=""></div></div>
+
+    <section class="music music-section" id="music" aria-labelledby="music-title">
+      <h2 class="sr-only" id="music-title">Łaszewo music</h2>
+      <div class="section-intro"><span class="eyebrow">Music</span><a class="text-link flow-button flow-compact" href="https://open.spotify.com/artist/6jxGLrn1I14RIeRYodOpLN" target="_blank" rel="noopener">All music on Spotify</a></div>
+      <div id="music-carousel"><p class="music-loading">Loading the music…</p></div>
+      <noscript><p class="section-pad"><a class="text-link flow-button flow-compact" href="https://open.spotify.com/artist/6jxGLrn1I14RIeRYodOpLN">Listen to Łaszewo on Spotify</a></p></noscript>
+    </section>
+
+    <section class="live" id="live" aria-labelledby="live-title">
+      <div class="live-photo"><img src="assets/b.webp" alt="The three members of Łaszewo together at home" width="2400" height="1600" loading="lazy"></div>
+      <div class="live-content section-pad">
+        <div class="section-intro"><span class="eyebrow">Łaszewo</span></div>
+        <div class="live-layout">
+          <div class="live-copy"><h2 class="display" id="live-title">Tour<br>Dates</h2><button class="solid-button flow-button flow-accent" id="locate-shows" type="button">Find shows near me</button><p class="location-status" id="location-status" role="status" aria-live="polite"></p></div>
+          <div class="show-list">
+            <div class="shows-heading"><span>Upcoming shows</span><span id="show-years">2026 / 2027</span></div>
+            <div class="show-scroll" id="show-rows" role="region" aria-label="All shows and updates" aria-describedby="show-scroll-hint" tabindex="0"><p class="shows-loading">Loading upcoming shows…</p></div>
+            <div class="show-scroll-meta" id="show-scroll-meta" hidden><span id="show-scroll-hint">Scroll for more</span><span id="show-position"></span></div>
+            <button class="show-more flow-button" id="show-more" type="button" aria-controls="show-rows" hidden>See more</button>
+            <a class="all-dates flow-button flow-accent" href="https://laylo.com/d/602a7214-254e-4ad7-895a-3230a0894dc5" target="_blank" rel="noopener">View on Laylo<span class="tiny-people" aria-hidden="true"></span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="connect">
+      <div class="footer-top section-pad">
+        <div class="footer-message"><h2 class="display">Follow<br>Laszewo</h2><a class="dark-button flow-button" href="https://laylo.com/laszewo" target="_blank" rel="noopener">View on Laylo</a></div>
+        <div class="footer-photo"><img src="assets/c.webp" alt="Łaszewo’s official 2026 group portrait" width="1920" height="2400" loading="lazy"><span>Łaszewo</span></div>
+        <div class="footer-links">
+          <div><h3>Find us</h3><div class="social-links">
+            <a class="flow-button flow-icon" href="https://www.instagram.com/laszewo" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><img src="assets/icons/instagram.svg" width="24" height="24" alt=""></a>
+            <a class="flow-button flow-icon" href="https://www.tiktok.com/@laszewooo" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><img src="assets/icons/tiktok.svg" width="24" height="24" alt=""></a>
+            <a class="flow-button flow-icon" href="https://www.youtube.com/channel/UCnOZUDbRc2Ae76IhROupOfA" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube"><img src="assets/icons/youtube.svg" width="24" height="24" alt=""></a>
+            <a class="flow-button flow-icon" href="https://open.spotify.com/artist/6jxGLrn1I14RIeRYodOpLN" target="_blank" rel="noopener" aria-label="Spotify" title="Spotify"><img src="assets/icons/spotify.svg" width="24" height="24" alt=""></a>
+            <a class="flow-button flow-icon" href="https://music.apple.com/us/artist/%C5%82aszewo/1438035296" target="_blank" rel="noopener" aria-label="Apple Music" title="Apple Music"><img src="assets/icons/applemusic.svg" width="24" height="24" alt=""></a>
+          </div></div>
+          <div><h3>Contact</h3><a class="flow-button flow-compact" href="mailto:laszewo@kkmgmt.co">Email us here!</a><a class="flow-button flow-compact" href="https://laylo.com/laszewo/cj9Z0" target="_blank" rel="noopener">Merch</a></div>
+        </div>
+      </div>
+      <a class="footer-wordmark" href="#top" aria-label="Łaszewo, back to top"></a>
+      <div class="footer-bottom"><span>© <span id="year">2026</span> Łaszewo</span></div>
+    </footer>
+  </main>
+  <audio id="preview-audio" preload="none"></audio>
+</body>
+</html>
