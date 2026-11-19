@@ -9,3 +9,4 @@
 - No decorative arrows in buttons, links, or CTAs. Functional directional controls are allowed.
 - Preserve public access to the deployed site.
 - Publish this repository through its GitHub integration with Vercel in the existing Dtrain team. The production branch is `main`; `vercel.json` declares the build and static output.
+- Keep manual page scrolling native: do not reintroduce Lenis wheel interception or scroll-driven hero style updates. CSS may ease anchor navigation while respecting reduced motion.

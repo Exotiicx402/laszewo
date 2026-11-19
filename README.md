@@ -21,7 +21,7 @@ The supplied Disc Cascade Carousel lives in `components/ui/disc-cascade-carousel
 
 The music section displays solid circular artwork, with its center cutout and silver hub ring removed through the section styles.
 
-`src/smooth-scroll.ts` adds subtle Lenis page scrolling with a 0.18 lerp and normal wheel distance. Touch gestures and nested tour/track lists stay native. Anchor links use Lenis, and reduced-motion preferences are respected. The build bundles Lenis and its styles locally into `dist/smooth-scroll.js` and `dist/smooth-scroll.css`.
+Page scrolling uses the browser’s native wheel, trackpad, and touch momentum. `src/smooth-scroll.css` eases navigation jumps only, with instant jumps for reduced-motion preferences; the build outputs `dist/smooth-scroll.css`. Lenis and its continuous animation loop have been removed, along with the hero wordmark’s per-scroll style updates. The independent tour list and horizontal music-carousel gestures are preserved.
 
 Run `npm ci`, then `npm run typecheck` and `npm run build` after changes to the music section. The build writes `dist/music-section.js` and `dist/music-section.css`. Main page content and the remaining site styles stay in `dist/index.html`, `dist/style.css`, and `dist/app.js`. `node --check dist/app.js` checks the static page interactions.
 
