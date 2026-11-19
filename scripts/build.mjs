@@ -19,11 +19,11 @@ copyFileSync('src/flow-button.css', 'dist/flow-button.css')
 copyFileSync('src/mobile.css', 'dist/mobile.css')
 
 await build({
-  entryPoints: ['src/smooth-scroll.ts'],
+  entryPoints: ['src/smooth-scroll.css'],
   bundle: true,
   minify: true,
   format: 'esm',
   target: ['es2022'],
-  outfile: 'dist/smooth-scroll.js',
+  outfile: 'dist/smooth-scroll.css',
   legalComments: 'linked',
 })
