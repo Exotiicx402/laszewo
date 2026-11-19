@@ -1,0 +1,2 @@
+/* Lenis owns page easing; do not layer native CSS smoothing on top. */
+html.lenis{scroll-behavior:auto!important}
