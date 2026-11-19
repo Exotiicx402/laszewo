@@ -1,2 +1,5 @@
-/* Lenis owns page easing; do not layer native CSS smoothing on top. */
-html.lenis{scroll-behavior:auto!important}
+/* Wheel and touch scrolling stay native. Only navigation jumps are eased. */
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
