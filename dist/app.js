@@ -26,11 +26,4 @@ if (matchMedia('(pointer:fine)').matches) {
   });
   hero.addEventListener('pointerleave', () => { hero.style.setProperty('--px', '0px'); hero.style.setProperty('--py', '0px'); });
 }
-let scrollTick = false;
-addEventListener('scroll', () => {
-  if (scrollTick || motionPaused || innerWidth < 701) return;
-  scrollTick = true;
-  requestAnimationFrame(() => { hero.style.setProperty('--logo-y', `${Math.min(scrollY, innerHeight) * -.04}px`); scrollTick = false; });
-}, { passive: true });
-
 document.querySelector('#year').textContent = new Date().getFullYear();
